@@ -1,0 +1,25 @@
+vrrp_script haproxy_check {
+  script "killall -0 haproxy"
+  interval 2
+  weight 2
+}
+
+vrrp_instance {{ keepalived_config['vrrp_instance_name'] }} {
+  interface {{ vrrp_interface }}
+  state {{ vrrp_instance_state }}
+  virtual_router_id {{ keepalived_config['virtual_router_id'] }}
+  priority {{ vrrp_instance_priority }}
+
+  authentication {
+    auth_type PASS
+    auth_pass {{ keepalived_config['authentication_password'] }}
+  }
+
+  virtual_ipaddress {
+    {{ loadbalancer_apiserver['address'] }} dev {{ vrrp_interface }}
+  }
+
+  track_script {
+    haproxy_check
+  }
+}

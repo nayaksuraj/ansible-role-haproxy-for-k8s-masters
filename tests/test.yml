@@ -1,0 +1,7 @@
+---
+- hosts: kube-master
+  become: true
+  roles:
+    - name: haproxy-for-k8s-masters
+      tags:
+      - haproxy-keepalived-for-k8s-masters-ha
