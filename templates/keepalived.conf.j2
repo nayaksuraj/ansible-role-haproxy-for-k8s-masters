@@ -7,7 +7,7 @@ vrrp_script haproxy_check {
 vrrp_instance {{ keepalived_config['vrrp_instance_name'] }} {
   interface {{ vrrp_interface }}
   state {{ vrrp_instance_state }}
-  virtual_router_id {{ keepalived_config['virtual_router_id'] }}
+  virtual_router_id {{ vrrp_instance_virtual_router_id }}
   priority {{ vrrp_instance_priority }}
 
   authentication {

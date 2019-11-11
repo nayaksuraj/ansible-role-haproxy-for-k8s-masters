@@ -59,6 +59,7 @@ node-03
 ...
 [kube-master:vars]
 vrrp_interface=enp0s5
+vrrp_instance_virtual_router_id=51
 ...
 ```
 

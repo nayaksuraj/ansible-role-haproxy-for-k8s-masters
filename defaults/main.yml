@@ -2,6 +2,5 @@
 haproxy_config_file_path: "/etc/haproxy/haproxy.cfg"
 keepalived_config:
   vrrp_instance_name: "VI_1"
-  virtual_router_id: "51"
   authentication_password: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters,digits') }}"
 keepalived_config_file_path: "/etc/keepalived/keepalived.conf"
