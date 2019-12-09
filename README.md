@@ -37,7 +37,9 @@ You should include this role to `cluster.yml` playbook of Kubespray:
   roles:
     - name: haproxy-for-k8s-masters
       tags:
-      - haproxy-keepalived-for-k8s-masters-ha
+      - haproxy
+      - keepalived
+      - kubernetes
 ```
 Example Inventory
 ----------------
