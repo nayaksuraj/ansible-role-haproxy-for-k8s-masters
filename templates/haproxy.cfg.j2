@@ -26,7 +26,7 @@ defaults
   maxconn                 4000
 
 frontend stats
-  bind *:8404
+  bind {{ loadbalancer_apiserver['address'] }}:8404
   stats enable
   stats uri /stats
   stats refresh 10s
@@ -34,13 +34,13 @@ frontend stats
 
 {% if loadbalancer_apiserver_healthcheck_port is defined -%}
 frontend healthz
-  bind *:{{ loadbalancer_apiserver_healthcheck_port }}
+  bind {{ loadbalancer_apiserver['address'] }}:{{ loadbalancer_apiserver_healthcheck_port }}
   mode http
   monitor-uri /healthz
 {% endif %}
 
 frontend kube_api_frontend
-  bind *:{{ loadbalancer_apiserver['port']|default(kube_apiserver_port) }}
+  bind {{ loadbalancer_apiserver['address'] }}:{{ loadbalancer_apiserver['port']|default(kube_apiserver_port) }}
   mode tcp
   option tcplog
   default_backend kube_api_backend
