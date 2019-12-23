@@ -1,5 +1,5 @@
 vrrp_script haproxy_check {
-  script "pidof haproxy"
+  script "pgrep haproxy"
   interval 2
   weight 2
 }
