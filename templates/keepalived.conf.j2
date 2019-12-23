@@ -1,5 +1,10 @@
+global_defs {
+  script_user root
+  enable_script_security
+}
+
 vrrp_script haproxy_check {
-  script "pgrep haproxy"
+  script "/usr/bin/pgrep haproxy"
   interval 2
   weight 2
 }
