@@ -4,7 +4,6 @@
   package:
     name: haproxy
     state: present
-  register: check_if_present
 
 - name: Configure haproxy
   template:
@@ -13,12 +12,11 @@
   notify:
     - restart haproxy
 
-- name: Install keepalived packages
+- name: Install keepalived latest packages
   become: true
-  package:
+  snap:
     name: keepalived
-    state: present
-  register: check_if_present
+    classic: yes
 
 - name: Configure keepalived
   template:

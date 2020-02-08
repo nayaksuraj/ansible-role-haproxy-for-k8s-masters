@@ -5,5 +5,5 @@
     state: restarted
 - name: restart keepalived
   systemd:
-    name: keepalived
+    name: snap.keepalived.daemon.service
     state: restarted
