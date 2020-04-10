@@ -18,11 +18,11 @@ defaults
   retries                 5
   timeout http-request    5m
   timeout queue           5m
-  timeout connect         30s
-  timeout client          30s
-  timeout server          15m
-  timeout http-keep-alive 30s
-  timeout check           30s
+  timeout connect         5m
+  timeout client          5m
+  timeout server          5m
+  timeout http-keep-alive 5m
+  timeout check           5m
   maxconn                 4000
 
 frontend stats
