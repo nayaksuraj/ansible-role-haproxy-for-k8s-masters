@@ -21,7 +21,7 @@ vrrp_instance {{ keepalived_config['vrrp_instance_name'] }} {
   }
 
   virtual_ipaddress {
-    {{ loadbalancer_apiserver['address'] }} dev {{ vrrp_interface }}
+    {{ loadbalancer_apiserver['address'] }}
   }
 
   track_script {
